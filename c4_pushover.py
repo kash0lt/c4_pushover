@@ -17,6 +17,7 @@ class C4PushOver():
         self.userToken = authref.usertoken
 
     def OffLightOn(self):
+        self.conn = http.client.HTTPSConnection("api.pushover.net:443")
         self.conn.request("POST", "/1/messages.json",
                           urllib.parse.urlencode({
                               "token": self.apiToken,
@@ -25,8 +26,10 @@ class C4PushOver():
                               "title": "jibo office light on"
                           }), {"Content-type": "application/x-www-form-urlencoded"})
         self.conn.getresponse()
+        self.conn.close()
 
     def OffLightOff(self):
+        self.conn = http.client.HTTPSConnection("api.pushover.net:443")
         self.conn.request("POST", "/1/messages.json",
                           urllib.parse.urlencode({
                               "token": self.apiToken,
@@ -35,8 +38,10 @@ class C4PushOver():
                               "title": "jibo office light off"
                           }), {"Content-type": "application/x-www-form-urlencoded"})
         self.conn.getresponse()
+        self.conn.close()
 
     def OffRoomOff(self):
+        self.conn = http.client.HTTPSConnection("api.pushover.net:443")
         self.conn.request("POST", "/1/messages.json",
                           urllib.parse.urlencode({
                               "token": self.apiToken,
@@ -45,6 +50,7 @@ class C4PushOver():
                               "title": "jibo office room off"
                           }), {"Content-type": "application/x-www-form-urlencoded"})
         self.conn.getresponse()
+        self.conn.close()
 
 
 mainprog = Tk()
