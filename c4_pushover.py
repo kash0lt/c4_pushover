@@ -1,5 +1,7 @@
 import http.client
 import urllib
+from tkinter import *
+import os
 from push_sec import Auth
 # push_sec contains the usertoken and api token for this python script to access
 # https://www.pushover.net
@@ -45,5 +47,9 @@ class C4PushOver():
         self.conn.getresponse()
 
 
+mainprog = Tk()
+mainprog.title("Gui Office Control")
+mainprog.iconbitmap(os.path.join(os.path.dirname(__file__), 'c4_pushover.ico'))
+mainprog.geometry("400x400")
 c4pushover = C4PushOver(Auth())
-c4pushover.OffRoomOff()
+mainprog.mainloop()
