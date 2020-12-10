@@ -11,55 +11,85 @@ from push_sec import Auth
 
 
 class C4PushOver():
-    def __init__(self, authref):
-        self.conn = http.client.HTTPSConnection("api.pushover.net:443")
-        self.apiToken = authref.apitoken
-        self.userToken = authref.usertoken
+  def __init__(self, authref):
+    self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.apiToken = authref.apitoken
+    self.userToken = authref.usertoken
 
-    def OffLightOn(self):
-        self.conn = http.client.HTTPSConnection("api.pushover.net:443")
-        self.conn.request("POST", "/1/messages.json",
-                          urllib.parse.urlencode({
-                              "token": self.apiToken,
-                              "user": self.userToken,
-                              "message": "office light on",
-                              "title": "jibo office light on"
-                          }), {"Content-type": "application/x-www-form-urlencoded"})
-        self.conn.getresponse()
-        self.conn.close()
+  def OffLightOn(self):
+    self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "office light on",
+                          "title": "jibo office light on"
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    self.conn.getresponse()
+    self.conn.close()
 
-    def OffLightOff(self):
-        self.conn = http.client.HTTPSConnection("api.pushover.net:443")
-        self.conn.request("POST", "/1/messages.json",
-                          urllib.parse.urlencode({
-                              "token": self.apiToken,
-                              "user": self.userToken,
-                              "message": "office light off",
-                              "title": "jibo office light off"
-                          }), {"Content-type": "application/x-www-form-urlencoded"})
-        self.conn.getresponse()
-        self.conn.close()
+  def OffLightOff(self):
+    self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "office light off",
+                          "title": "jibo office light off"
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    self.conn.getresponse()
+    self.conn.close()
 
-    def OffRoomOff(self):
-        self.conn = http.client.HTTPSConnection("api.pushover.net:443")
-        self.conn.request("POST", "/1/messages.json",
-                          urllib.parse.urlencode({
-                              "token": self.apiToken,
-                              "user": self.userToken,
-                              "message": "office room off",
-                              "title": "jibo office room off"
-                          }), {"Content-type": "application/x-www-form-urlencoded"})
-        self.conn.getresponse()
-        self.conn.close()
+  def OffRoomOff(self):
+    self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "office room off",
+                          "title": "jibo office room off"
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    self.conn.getresponse()
+    self.conn.close()
+
+  def OffCountry(self):
+    self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "office country music",
+                          "title": "jibo office country music"
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    self.conn.getresponse()
+    self.conn.close()
+
+  def OffChristmas(self):
+    self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "iheartchristmas",
+                          "title": "jibo iheartchristmas"
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    self.conn.getresponse()
+    self.conn.close()
 
 
 mainprog = Tk()
 mainprog.title("Gui Office Control")
 mainprog.iconbitmap(os.path.join(os.path.dirname(__file__), 'c4_pushover.ico'))
-mainprog.geometry("400x400")
+mainprog.geometry("300x200")
 c4pushover = C4PushOver(Auth())
 m_offOn = Button(mainprog, text="Office Light On", command=c4pushover.OffLightOn)
-m_offOn.grid(row=0, column=0, ipadx=40)
+m_offOn.grid(row=0, column=1, padx=60, ipadx=40)
 m_offOff = Button(mainprog, text="Office Light Off", command=c4pushover.OffLightOff)
-m_offOff.grid(row=1, column=0, ipadx=40)
+m_offOff.grid(row=1, column=1, padx=60, ipadx=40)
+m_offCountry = Button(mainprog, text="Office IheartCountry", command=c4pushover.OffCountry)
+m_offCountry.grid(row=2, column=1, padx=60, ipadx=40)
+m_offChristmas = Button(mainprog, text="Office IheartChristmas", command=c4pushover.OffChristmas)
+m_offChristmas.grid(row=3, column=1, padx=60, ipadx=40)
+m_OfficeOff = Button(mainprog, text="Office room off", command=c4pushover.OffRoomOff)
+m_OfficeOff.grid(row=5, column=1, padx=60, ipadx=40)
 mainprog.mainloop()
