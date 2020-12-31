@@ -76,6 +76,21 @@ class C4PushOver():
         print(r1Data)
         # self.conn.close()
 
+    def OffTradCountry(self):
+        # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+        self.conn.request("POST", "/1/messages.json",
+                          urllib.parse.urlencode({
+                              "token": self.apiToken,
+                              "user": self.userToken,
+                              "message": "traditional country music",
+                              "title": "jibo traditional country music"
+                          }), {"Content-type": "application/x-www-form-urlencoded"})
+        r1 = self.conn.getresponse()
+        print(r1.status, r1.reason)
+        r1Data = r1.read()
+        print(r1Data)
+        # self.conn.close()
+
     def OffChristmas(self):
         # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
         self.conn.request("POST", "/1/messages.json",
@@ -103,8 +118,10 @@ m_offOff = Button(mainprog, text="Office Light Off", command=c4pushover.OffLight
 m_offOff.grid(row=1, column=1, padx=60, ipadx=40)
 m_offCountry = Button(mainprog, text="Office IheartCountry", command=c4pushover.OffCountry)
 m_offCountry.grid(row=2, column=1, padx=60, ipadx=40)
+m_offTradCountry = Button(mainprog, text="Office PandoraCountry", command=c4pushover.OffTradCountry)
+m_offTradCountry.grid(row=3, column=1, padx=60, ipadx=40)
 m_offChristmas = Button(mainprog, text="Office IheartChristmas", command=c4pushover.OffChristmas)
-m_offChristmas.grid(row=3, column=1, padx=60, ipadx=40)
+m_offChristmas.grid(row=4, column=1, padx=60, ipadx=40)
 m_OfficeOff = Button(mainprog, text="Office room off", command=c4pushover.OffRoomOff)
 m_OfficeOff.grid(row=5, column=1, padx=60, ipadx=40)
 mainprog.mainloop()
