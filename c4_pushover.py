@@ -15,6 +15,7 @@ class C4PushOver():
         self.conn = http.client.HTTPSConnection("api.pushover.net:443")
         self.apiToken = authref.apitoken
         self.userToken = authref.usertoken
+        self.title = "c4_pushover Python"
 
     def OffLightOn(self):
         # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
@@ -23,7 +24,7 @@ class C4PushOver():
                               "token": self.apiToken,
                               "user": self.userToken,
                               "message": "office light on",
-                              "title": "jibo office light on"
+                              "title": self.title
                           }), {"Content-type": "application/x-www-form-urlencoded"})
         r1 = self.conn.getresponse()
         print(r1.status, r1.reason)
@@ -38,7 +39,7 @@ class C4PushOver():
                               "token": self.apiToken,
                               "user": self.userToken,
                               "message": "office light off",
-                              "title": "jibo office light off"
+                              "title": self.title
                           }), {"Content-type": "application/x-www-form-urlencoded"})
         r1 = self.conn.getresponse()
         print(r1.status, r1.reason)
@@ -53,7 +54,7 @@ class C4PushOver():
                               "token": self.apiToken,
                               "user": self.userToken,
                               "message": "office room off",
-                              "title": "jibo office room off"
+                              "title": self.title
                           }), {"Content-type": "application/x-www-form-urlencoded"})
         r1 = self.conn.getresponse()
         print(r1.status, r1.reason)
@@ -67,8 +68,8 @@ class C4PushOver():
                           urllib.parse.urlencode({
                               "token": self.apiToken,
                               "user": self.userToken,
-                              "message": "office country music",
-                              "title": "jibo office country music"
+                              "message": "iheartcountry",
+                              "title": self.title
                           }), {"Content-type": "application/x-www-form-urlencoded"})
         r1 = self.conn.getresponse()
         print(r1.status, r1.reason)
@@ -82,8 +83,8 @@ class C4PushOver():
                           urllib.parse.urlencode({
                               "token": self.apiToken,
                               "user": self.userToken,
-                              "message": "traditional country music",
-                              "title": "jibo traditional country music"
+                              "message": "pandora country",
+                              "title": self.title
                           }), {"Content-type": "application/x-www-form-urlencoded"})
         r1 = self.conn.getresponse()
         print(r1.status, r1.reason)
@@ -98,7 +99,7 @@ class C4PushOver():
                               "token": self.apiToken,
                               "user": self.userToken,
                               "message": "iheartchristmas",
-                              "title": "jibo iheartchristmas"
+                              "title": self.title
                           }), {"Content-type": "application/x-www-form-urlencoded"})
         r1 = self.conn.getresponse()
         print(r1.status, r1.reason)
