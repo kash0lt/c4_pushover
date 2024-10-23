@@ -98,7 +98,7 @@ class C4PushOver():
                       urllib.parse.urlencode({
                           "token": self.apiToken,
                           "user": self.userToken,
-                          "message": "iheartchristmas",
+                          "message": "pan_christmas",
                           "title": self.title
                       }), {"Content-type": "application/x-www-form-urlencoded"})
     r1 = self.conn.getresponse()
@@ -134,7 +134,7 @@ m_offCountry = Button(mainprog, text="Office IheartCountry", command=c4pushover.
 m_offCountry.grid(row=2, column=1, padx=60, ipadx=40)
 m_offTradCountry = Button(mainprog, text="Office PandoraCountry", command=c4pushover.OffTradCountry)
 m_offTradCountry.grid(row=3, column=1, padx=60, ipadx=40)
-m_offChristmas = Button(mainprog, text="Office IheartChristmas", command=c4pushover.OffChristmas)
+m_offChristmas = Button(mainprog, text="Office Pandora Christmas", command=c4pushover.OffChristmas)
 m_offChristmas.grid(row=4, column=1, padx=60, ipadx=40)
 m_officeMute = Button(mainprog, text="Mute Toggle", command=c4pushover.MuteToggle)
 m_officeMute.grid(row=5, column=1, padx=60, ipadx=40)
