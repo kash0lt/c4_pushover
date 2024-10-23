@@ -11,101 +11,114 @@ from push_sec import Auth
 
 
 class C4PushOver():
-    def __init__(self, authref):
-        self.conn = http.client.HTTPSConnection("api.pushover.net:443")
-        self.apiToken = authref.apitoken
-        self.userToken = authref.usertoken
-        self.title = "c4_pushover Python"
+  def __init__(self, authref):
+    self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.apiToken = authref.apitoken
+    self.userToken = authref.usertoken
+    self.title = "c4_pushover Python"
 
-    def OffLightOn(self):
-        # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
-        self.conn.request("POST", "/1/messages.json",
-                          urllib.parse.urlencode({
-                              "token": self.apiToken,
-                              "user": self.userToken,
-                              "message": "office light on",
-                              "title": self.title
-                          }), {"Content-type": "application/x-www-form-urlencoded"})
-        r1 = self.conn.getresponse()
-        print(r1.status, r1.reason)
-        r1Data = r1.read()
-        print(r1Data)
-        # self.conn.close()
+  def OffLightOn(self):
+    # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "office light on",
+                          "title": self.title
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    r1 = self.conn.getresponse()
+    print(r1.status, r1.reason)
+    r1Data = r1.read()
+    print(r1Data)
+    # self.conn.close()
 
-    def OffLightOff(self):
-        # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
-        self.conn.request("POST", "/1/messages.json",
-                          urllib.parse.urlencode({
-                              "token": self.apiToken,
-                              "user": self.userToken,
-                              "message": "office light off",
-                              "title": self.title
-                          }), {"Content-type": "application/x-www-form-urlencoded"})
-        r1 = self.conn.getresponse()
-        print(r1.status, r1.reason)
-        r1Data = r1.read()
-        print(r1Data)
-        # self.conn.close()
+  def OffLightOff(self):
+    # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "office light off",
+                          "title": self.title
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    r1 = self.conn.getresponse()
+    print(r1.status, r1.reason)
+    r1Data = r1.read()
+    print(r1Data)
+    # self.conn.close()
 
-    def OffRoomOff(self):
-        # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
-        self.conn.request("POST", "/1/messages.json",
-                          urllib.parse.urlencode({
-                              "token": self.apiToken,
-                              "user": self.userToken,
-                              "message": "office room off",
-                              "title": self.title
-                          }), {"Content-type": "application/x-www-form-urlencoded"})
-        r1 = self.conn.getresponse()
-        print(r1.status, r1.reason)
-        r1Data = r1.read()
-        print(r1Data)
-        # self.conn.close()
+  def OffRoomOff(self):
+    # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "office room off",
+                          "title": self.title
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    r1 = self.conn.getresponse()
+    print(r1.status, r1.reason)
+    r1Data = r1.read()
+    print(r1Data)
+    # self.conn.close()
 
-    def OffCountry(self):
-        # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
-        self.conn.request("POST", "/1/messages.json",
-                          urllib.parse.urlencode({
-                              "token": self.apiToken,
-                              "user": self.userToken,
-                              "message": "iheartcountry",
-                              "title": self.title
-                          }), {"Content-type": "application/x-www-form-urlencoded"})
-        r1 = self.conn.getresponse()
-        print(r1.status, r1.reason)
-        r1Data = r1.read()
-        print(r1Data)
-        # self.conn.close()
+  def OffCountry(self):
+    # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "iheartcountry",
+                          "title": self.title
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    r1 = self.conn.getresponse()
+    print(r1.status, r1.reason)
+    r1Data = r1.read()
+    print(r1Data)
+    # self.conn.close()
 
-    def OffTradCountry(self):
-        # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
-        self.conn.request("POST", "/1/messages.json",
-                          urllib.parse.urlencode({
-                              "token": self.apiToken,
-                              "user": self.userToken,
-                              "message": "pandora country",
-                              "title": self.title
-                          }), {"Content-type": "application/x-www-form-urlencoded"})
-        r1 = self.conn.getresponse()
-        print(r1.status, r1.reason)
-        r1Data = r1.read()
-        print(r1Data)
-        # self.conn.close()
+  def OffTradCountry(self):
+    # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "pandora country",
+                          "title": self.title
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    r1 = self.conn.getresponse()
+    print(r1.status, r1.reason)
+    r1Data = r1.read()
+    print(r1Data)
+    # self.conn.close()
 
-    def OffChristmas(self):
-        # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
-        self.conn.request("POST", "/1/messages.json",
-                          urllib.parse.urlencode({
-                              "token": self.apiToken,
-                              "user": self.userToken,
-                              "message": "iheartchristmas",
-                              "title": self.title
-                          }), {"Content-type": "application/x-www-form-urlencoded"})
-        r1 = self.conn.getresponse()
-        print(r1.status, r1.reason)
-        r1Data = r1.read()
-        print(r1Data)
-        # self.conn.close()
+  def OffChristmas(self):
+    # self.conn = http.client.HTTPSConnection("api.pushover.net:443")
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "iheartchristmas",
+                          "title": self.title
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    r1 = self.conn.getresponse()
+    print(r1.status, r1.reason)
+    r1Data = r1.read()
+    print(r1Data)
+    # self.conn.close()
+
+  def MuteToggle(self):
+    self.conn.request("POST", "/1/messages.json",
+                      urllib.parse.urlencode({
+                          "token": self.apiToken,
+                          "user": self.userToken,
+                          "message": "volume mute",
+                          "title": self.title
+                      }), {"Content-type": "application/x-www-form-urlencoded"})
+    r1 = self.conn.getresponse()
+    print(r1.status, r1.reason)
+    r1Data = r1.read()
+    print(r1Data)
 
 
 mainprog = Tk()
@@ -123,7 +136,9 @@ m_offTradCountry = Button(mainprog, text="Office PandoraCountry", command=c4push
 m_offTradCountry.grid(row=3, column=1, padx=60, ipadx=40)
 m_offChristmas = Button(mainprog, text="Office IheartChristmas", command=c4pushover.OffChristmas)
 m_offChristmas.grid(row=4, column=1, padx=60, ipadx=40)
+m_officeMute = Button(mainprog, text="Mute Toggle", command=c4pushover.MuteToggle)
+m_officeMute.grid(row=5, column=1, padx=60, ipadx=40)
 m_OfficeOff = Button(mainprog, text="Office room off", command=c4pushover.OffRoomOff)
-m_OfficeOff.grid(row=5, column=1, padx=60, ipadx=40)
+m_OfficeOff.grid(row=6, column=1, padx=60, ipadx=40)
 mainprog.mainloop()
 c4pushover.conn.close()
